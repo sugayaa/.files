@@ -33,7 +33,7 @@ exec --no-startup-id unagi
 exec --no-startup-id polybar -r example
 exec --no-startup-id nvidia-settings --load-config-only --assign="syncToVBlank=0" 
 #exec --no-startup-id feh --bg-center --bg-scale /home/sugaya/Imagens/image.jpg
-exec --no-startup-id /home/sugaya/scripts/walran.sh
+exec --no-startup-id /bin/bash -c /home/sugaya/scripts/walran.sh
 exec --no-startup-id numlockx
 #print screen
 bindsym Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
