@@ -56,4 +56,4 @@ export PS1="\[\e[31m\]\w\[\e[m\]\`parse_git_branch\` \\$ "
 alias ls='ls --color=auto'
 alias vim=nvim
 alias ..='cd ..'
-
+alias copy='xclip -sel c <'
