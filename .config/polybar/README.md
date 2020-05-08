@@ -3,10 +3,10 @@ Got it from [Altinda's](https://github.com/altindas/dots). All credits goes to h
 
 ## Fonts
 
-otf-san-francisco
-otf-font-awesome-5-free
-ttf-fira-code
-ttf-iosevka
-siji-git
-otf-font-awesome-5
-noto-fonts
+* otf-san-francisco
+* otf-font-awesome-5-free
+* ttf-fira-code
+* ttf-iosevka
+* siji-git
+* otf-font-awesome-5
+* noto-fonts
