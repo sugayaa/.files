@@ -1,0 +1,20 @@
+[colors]
+
+background = ${xrdb:background:#222}
+foreground = ${xrdb:foreground:#222}
+primary = ${xrdb:color1:#222}
+secondary = ${xrdb:color2:#222}
+alert = ${xrdb:color3:#222}
+
+workspaces = ${xrdb:color5:#B04A4F}
+
+
+right1 = ${xrdb:*color10:#8C3D45}
+right2 = ${xrdb:*color11:#91444B}
+right3 = ${xrdb:*color12:#B04A4F}
+right4 = ${xrdb:*color13:#D05156}
+right5 = ${xrdb:*color14:#E45C58}
+right6 = ${xrdb:*color15:#E86E52}
+
+right7 = ${xrdb:*color3:#E86E52}
+right8 = ${xrdb:*color9:#E86E52}
