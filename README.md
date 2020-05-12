@@ -1,4 +1,7 @@
 # System config files
+
+Color shifting polybar synced with wal and randomly selected wallpaper.
+
 ### Dependencies
 * i3
 * picom
@@ -17,7 +20,7 @@
 * firewalld
 * jack audio
 
-Color shifting polybar synced with wal and randomly selected wallpaper.
+---
 
 ![printscreen01](desktop-01.png)
 
