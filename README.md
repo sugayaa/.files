@@ -9,11 +9,11 @@ Color shifting polybar synced with wal and randomly selected wallpaper.
 * wal
 * firewalld (for adding firewall rules)
 
-## Config of
+### Config of
 * i3
 * polybar
 
-## Scripts of
+### Scripts of
 * random wallpaper
 * gif random wallpaper
 * setting palette to xdefaults
@@ -22,8 +22,14 @@ Color shifting polybar synced with wal and randomly selected wallpaper.
 
 ---
 
+### Showcase
+
 ![printscreen01](desktop-01.png)
 
 
 ![printscreen02](desktop-02.png)
+
+---
+
+## Open to suggestions and contributions
 
