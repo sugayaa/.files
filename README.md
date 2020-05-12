@@ -4,7 +4,7 @@
 * picom
 * polybar
 * wal
-* firewalld (for adding rules to the firewall)
+* firewalld (for adding firewall rules)
 
 ## Config of
 * i3
