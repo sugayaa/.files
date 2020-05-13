@@ -16,7 +16,7 @@ Color shifting polybar synced with wal and randomly selected wallpaper.
 ### Scripts of
 * random wallpaper
 * gif random wallpaper
-* setting palette to xdefaults
+* setting palette to xresources
 * firewalld
 * jack audio
 
