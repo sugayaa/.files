@@ -98,6 +98,7 @@ font-3 = Iosevka Nerd Font:style=Medium:size=15;3
 font-4 = Siji:style=Regular:size=10;2
 font-5 = FontAwesome5Brands:style=Solid:size=15;4
 font-6 = Noto Sans Symbols2:style=Regular:size=10;3
+font-7 = WenQuanYi Zen Hei:size=10;2
 
 modules-left = left-back-1 jgmenu left2 i3 left1 spotify-left spotify spotify-right
 modules-center = 
@@ -476,8 +477,9 @@ interval = 60
 type = custom/script
 interval = 2
 format-prefix = "  %{T5}%{T-}  "
-format = "<label>  "
-exec = python ~/.config/polybar/scripts/spotify.py -f '{artist}: {song} {play_pause}' 
+#format = "%{T8}<label>%{T-}  "
+format = " <label> "
+exec = python ~/.config/polybar/scripts/spotify.py -f '{artist} : {song}  {play_pause}' 
 #exec = python /home/sugaya/scripts/spotify-status.py -f '{artist}: {song} {play_pause}'
 format-overline = ${colors.workspaces}
 format-background = ${colors.workspaces}
