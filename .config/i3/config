@@ -22,6 +22,9 @@ bindsym $mod+Mod1+j exec --no-startup-id /bin/bash -c $SCRIPTS/walran-gif.sh
 bindsym $mod+Mod1+k exec --no-startup-id /bin/bash -c $SCRIPTS/walran.sh
 
 
+## calculator
+bindsym $mod+c exec --no-startup-id rofi -show calc -modi calc -no-show-match -no-sort -no-disable-history
+
 ## print screen
 bindsym Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
 #print screen selection
