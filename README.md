@@ -8,6 +8,7 @@ Color shifting polybar synced with wal and randomly selected wallpaper.
 * polybar
 * wal
 * firewalld (for adding firewall rules)
+* rofi-calc 
 
 ### Config of
 * i3
