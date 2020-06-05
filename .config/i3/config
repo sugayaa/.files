@@ -6,15 +6,16 @@ set $SCRIPTS /home/sugaya/crs/dev/scripts/
 set $PR_SCR_FOLDER /home/sugaya/media/pr_scr
 
 
+# startup scripts
 exec --no-startup-id /bin/bash -c $SCRIPTS/start_jack.sh
-
 exec --no-startup-id picom -cCGb
 exec --no-startup-id $SCRIPTS/polybar-launch.sh
 exec --no-startup-id nvidia-settings --load-config-only --assign="SyncToVBlank=0"
 exec --no-startup-id $SCRIPTS/walran.sh
+exec --no-startup-id $SCRIPTS/misc
 exec --no-startup-id numlockx
 
-#lock
+## lock
 exec --no-startup-id betterlockscreen --lock dim
 
 ## wallpapers
@@ -24,6 +25,12 @@ bindsym $mod+Mod1+k exec --no-startup-id /bin/bash -c $SCRIPTS/walran.sh
 
 ## calculator
 bindsym $mod+c exec --no-startup-id rofi -show calc -modi calc -no-show-match -no-sort -no-disable-history
+
+
+## volume bindings
+bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume 0 -5%
+bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume 0 +5%
+
 
 ## print screen
 bindsym Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
