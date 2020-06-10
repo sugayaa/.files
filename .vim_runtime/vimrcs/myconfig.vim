@@ -3,16 +3,16 @@ try
 catch
 endtry
 set background=dark
-nmap <leader>gd <Plug>(coc-definition)
-nmap <leader>gr <Plug>(coc-references)
+nmap gd <Plug>(coc-definition)
+nmap gr <Plug>(coc-references)
 nnoremap <C-p> :GFiles<CR>
 
 "copy paste utils
-vnoremap <C-c> "+y
-map <C-v> "+p
+"vnoremap <C-c> "+y
+"map <C-v> "+p
 
 
-set relativenumber
+set relativenumber number
 "saddistic mode
 set backspace=""
 noremap  <Up> ""
@@ -24,3 +24,9 @@ noremap! <Left> <Esc>
 noremap  <Right> ""
 noremap! <Right> <Esc>
 
+nnoremap <SPACE> " "
+
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
