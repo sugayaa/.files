@@ -14,12 +14,13 @@ exec --no-startup-id nvidia-settings --load-config-only --assign="SyncToVBlank=0
 exec --no-startup-id $SCRIPTS/walran.sh
 exec --no-startup-id $SCRIPTS/misc
 exec --no-startup-id numlockx
+exec --no-startup-id redshift
 
 ## lock
 exec --no-startup-id betterlockscreen --lock dim
 
 ## wallpapers
-bindsym $mod+Mod1+j exec --no-startup-id /bin/bash -c $SCRIPTS/walran-gif.sh
+bindsym $mod+Mod1+j exec --no-startup-id /bin/bash -c $SCRIPTS/wal-video
 bindsym $mod+Mod1+k exec --no-startup-id /bin/bash -c $SCRIPTS/walran.sh
 
 
@@ -47,6 +48,8 @@ bindsym $mod+Mod1+space exec playerctl play-pause
 #next/previous
 bindsym $mod+Mod1+Right exec playerctl next
 bindsym $mod+Mod1+Left exec playerctl previous
+bindsym $mod+Mod1+h exec playerctl previous
+bindsym $mod+Mod1+l exec playerctl next
 
 
 #shutdown
@@ -76,19 +79,19 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+# bindsym $mod+Shift+Left move left
+# bindsym $mod+Shift+Down move down
+# bindsym $mod+Shift+Up move up
+# bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+b split v
+bindsym $mod+b split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -128,9 +131,12 @@ set $ws13 ""
 set $ws14 ""
 set $ws15 ""
 set $ws16 ""
+set $ws17 ""
 
 bindsym $mod+Ctrl+Right workspace next
-bindsym $mod+Ctrl+Left workspace prev
+bindsym $mod+Ctrl+Left  workspace prev
+bindsym $mod+Ctrl+h     workspace prev
+bindsym $mod+Ctrl+l     workspace next
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -157,6 +163,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 
+# info gathered with xprop, WM_CLASS_STRING 
 assign [class="discord"] $ws12
 assign [class="VirtualBox Manager"] $ws15
 for_window [class="Spotify"] move to workspace $ws13
@@ -164,7 +171,8 @@ assign [class="TelegramDesktop"] $ws14
 assign [class="Kotatogram"] $ws14
 assign [class="Steam"] $ws16
 for_window [instance="origin.exe"] floating enable
-#for_window [class="kotatogram-desktop"] move to workspace $ws14
+assign [class="obs"] $ws17
+# for_window [instance="obs"] $ws17
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -192,6 +200,15 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+bar {
+
+i3bar_command i3bar --transparency
+workspace_buttons no
+
+colors {
+    background #00000000
+    }
+}
 
 for_window [class="^.*"] border pixel 0
 border_radius 2
