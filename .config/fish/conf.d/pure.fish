@@ -1,0 +1,1 @@
+/home/sugaya/.local/share/omf/themes/pure/conf.d/pure.fish

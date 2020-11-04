@@ -1,7 +1,12 @@
+if not set -q __tty
+    set -g __tty (tty)
+end
 #Start X at login
 if status is-login
     if test -z "$DISPLAY" -a $XDG_VTNR = 1
-        exec startx -- -keeptty
+        if test $__tty = '/dev/tty1'
+            exec startx -- -keeptty
+        end
     end
 end
 
@@ -15,4 +20,5 @@ end
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [ -f /home/sugaya/node_modules/tabtab/.completions/slss.fish ]; and . /home/sugaya/node_modules/tabtab/.completions/slss.fish
 
+# cat ~/.cache/wal/sequences
 fish_vi_key_bindings

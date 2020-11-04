@@ -397,7 +397,7 @@ label-open-foreground = ${colors.secondary}
 label-close =  cancel
 label-close-foreground = ${colors.secondary}
 label-separator = |
-label-separator-foreground = ${colors.foreground}
+label-separator-foreground = ${colors.foreground} 
 
 menu-0-0 = reboot
 menu-0-0-exec = menu-open-1
@@ -476,7 +476,7 @@ interval = 60
 [module/spotify]
 type = custom/script
 interval = 2
-format-prefix = "  %{T5}%{T-}  "
+format-prefix = "  %{T2}%{T-}  "
 #format = "%{T8}<label>%{T-}  "
 format = " <label> "
 exec = python ~/.config/polybar/scripts/spotify.py -f '{artist} : {song}  {play_pause}' 

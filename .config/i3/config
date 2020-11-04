@@ -35,21 +35,25 @@ bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume 0 +5%
 
 ## print screen
 bindsym Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
-#print screen selection
+
+# print screen selection
 bindsym Shift+Print exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
-#print screen and save
+
+# print screen and save
 bindsym Ctrl+Print exec --no-startup-id maim $PR_SCR_FOLDER/$(date +%F-%T).png
-#print screen selection and save
+
+# print screen selection and save
 bindsym Ctrl+Shift+Print exec --no-startup-id maim -s $PR_SCR_FOLDER/$(date +%F-%T).png
 
 
-#play-pause
-bindsym $mod+Mod1+space exec playerctl play-pause
-#next/previous
-bindsym $mod+Mod1+Right exec playerctl next
-bindsym $mod+Mod1+Left exec playerctl previous
-bindsym $mod+Mod1+h exec playerctl previous
-bindsym $mod+Mod1+l exec playerctl next
+# play-pause
+bindsym $mod+Mod1+space exec playerctl -p spotify play-pause
+
+# next/previous
+# bindsym $mod+Mod1+Right exec playerctl next
+# bindsym $mod+Mod1+Left exec playerctl previous
+bindsym $mod+Mod1+h exec playerctl -p spotify previous
+bindsym $mod+Mod1+l exec playerctl -p spotify next
 
 
 #shutdown
@@ -211,10 +215,32 @@ colors {
 }
 
 for_window [class="^.*"] border pixel 0
-border_radius 2
+border_radius 10
 gaps inner 10
 gaps outer 0
 gaps top 18
 gaps bottom 15
 #smart_gaps on
 #smart_borders on
+
+# A fast launcher
+# from PedroHLC
+set $mode_favs [d]iscord | [f]irefox | [s]team | [t]elegram | [v]olume | [S]potify  
+mode "$mode_favs" {
+    bindsym d exec discord-canary; mode "default"
+    bindsym f exec firefox-nightly; mode "default"
+    bindsym s exec steam; mode "default"
+    bindsym v exec pavucontrol-qt; mode "default"
+    bindsym Shift+s exec ((pidof spotify) || spotify); mode "default"
+    bindsym Shift+t exec kotatogram-desktop; mode "default"
+    bindsym Ctrl+Escape exec alacritty -e nvim ~/.config/i3/config; mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Tab mode "$mode_favs"
+
+bindsym Mod1+Shift+d exec --no-startup-id discord-canary
+bindsym Mod1+Shift+f exec --no-startup-id firefox-nightly
+bindsym Mod1+Shift+s exec --no-startup-id ((pidof spotify) || spotify)
+bindsym Mod1+Shift+g exec --no-startup-id steam
+bindsym Mod1+Shift+t exec --no-startup-id kotatogram-desktop
+bindsym Mod1+Shift+v exec --no-startup-id pavucontrol-qt
