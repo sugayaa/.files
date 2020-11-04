@@ -16,9 +16,7 @@ then
     then
         startx
     else
-        sudo /home/sugaya/qemu-raw.sh
-        # sudo /home/sugaya/libvirt-raw.sh
-        # /bin/script-do-pedrao.sh
+        sudo /home/sugaya/crs/vms/qemu/qemu-raw.sh
     fi
 elif [ "$(tty)" = '/dev/tty2' ]
 then
