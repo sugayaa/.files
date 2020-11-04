@@ -3,7 +3,7 @@
 . "/home/sugaya/.cache/wal/colors.sh"
 (cat ~/.cache/wal/sequences &)
 
-PATH=$PATH:/home/sugaya/.local/bin:/home/sugaya/.gem/ruby/2.7.0/bin
+PATH=$PATH:/home/sugaya/.local/bin:/home/sugaya/.gem/ruby/2.7.0/bin:/home/sugaya/crs/dev/scripts/
 
 # get current branch in git repo
 function parse_git_branch() {
@@ -57,3 +57,4 @@ alias ls='ls --color=auto'
 alias vim=nvim
 alias ..='cd ..'
 alias copy='xclip -sel c <'
+alias :q='exit'
