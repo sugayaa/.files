@@ -1,0 +1,157 @@
+set $mod Mod4
+
+font pango:DejaVu Sans Mono 8
+
+### Sway specific
+input "2:7:SynPS/2_Synaptics_TouchPad" {
+	tap enabled
+	natural_scroll enabled
+}
+
+input "1:1:AT_Translated_Set_2_keyboard" {
+	xkb_layout br
+	repeat_rate 60
+	repeat_delay 250
+}
+
+output "LVDS-1" pos 0 1200 res 1366x768
+output "VGA-1" pos 0 0 res 1920x1200
+output * bg /home/sugaya/images/mCHZE5U.png fill
+###
+
+# volume bindings
+bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume 0 -5%
+bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume 0 +5%
+# print screen
+bindsym Print exec grim -t png - | wl-copy
+bindsym Shift+Print exec slurp | grim -t png -g - - | wl-copy 
+# play-pause
+bindsym $mod+Mod1+space exec playerctl play-pause
+#next/previous
+bindsym $mod+Mod1+Right exec playerctl next
+bindsym $mod+Mod1+Left exec playerctl previous
+# start a terminal
+bindsym $mod+Return exec --no-startup-id alacritty
+# kill focused window
+bindsym $mod+Shift+q kill
+# start wofi (a program launcher)
+bindsym $mod+d exec wofi --gtk-dark --show drun
+#change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+# alternatively, you can use the cursor keys:
+# saddistic mode ON
+# bindsym $mod+Left focus left
+# bindsym $mod+Down focus down
+# bindsym $mod+Up focus up
+# bindsym $mod+Right focus right
+# move focused window
+# alternatively, you can use the cursor keys:
+# bindsym $mod+Shift+Left move left
+# bindsym $mod+Shift+Down move down
+# bindsym $mod+Shift+Up move up
+# bindsym $mod+Shift+Right move right
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+# split 
+bindsym $mod+b split h
+bindsym $mod+v split v
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+# focus the parent container
+bindsym $mod+a focus parent
+# Define names for default workspaces for which we configure key bindings later on.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+set $ws11 ""
+set $ws12 ""
+set $ws13 ""
+set $ws14 ""
+set $ws15 ""
+set $ws16 ""
+# move laterally
+bindsym $mod+Ctrl+h workspace next
+bindsym $mod+Ctrl+l workspace prev
+# you know the deal
+# bindsym $mod+Ctrl+h workspace next
+# bindsym $mod+Ctrl+l workspace prev
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+assign [class="discord"] $ws12
+assign [class="VirtualBox Manager"] $ws15
+assign [class="TelegramDesktop"] $ws14
+assign [class="Kotatogram"] $ws14
+assign [class="Steam"] $ws16
+for_window [class="Spotify"] move to workspace $ws13
+
+floating_modifier $mod
+default_border none
+hide_edge_borders both
+gaps inner 10
+gaps outer 0
+gaps top 10
+gaps bottom 5
+
+mode "resize" {
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # bindsym Left resize shrink width 10 px or 10 ppt
+        # bindsym Down resize grow height 10 px or 10 ppt
+        # bindsym Up resize shrink height 10 px or 10 ppt
+        # bindsym Right resize grow width 10 px or 10 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
+
+bar {
+	swaybar_command waybar
+}
