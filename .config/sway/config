@@ -89,8 +89,8 @@ set $ws14 ""
 set $ws15 ""
 set $ws16 ""
 # move laterally
-bindsym $mod+Ctrl+h workspace next
-bindsym $mod+Ctrl+l workspace prev
+bindsym $mod+Ctrl+h workspace prev
+bindsym $mod+Ctrl+l workspace next
 # you know the deal
 # bindsym $mod+Ctrl+h workspace next
 # bindsym $mod+Ctrl+l workspace prev
