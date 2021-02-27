@@ -9,17 +9,19 @@ Color shifting polybar synced with wal and randomly selected wallpaper.
 * wal
 * firewalld (for adding firewall rules)
 * rofi-calc 
+* redshift
 
 ### Config of
 * i3
 * polybar
+* redshift
 
 ### Scripts of
 * random wallpaper
 * gif random wallpaper
 * setting palette to xresources
+* polybar
 * firewalld
-* jack audio
 
 ---
 
