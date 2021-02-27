@@ -7,16 +7,16 @@ set $PR_SCR_FOLDER /home/sugaya/media/pr_scr
 
 
 # startup scripts
-exec --no-startup-id xrandr --output HDMI-0 --right-of DVI-D-0 --auto
+# exec --no-startup-id xrandr --output HDMI-0 --right-of DVI-D-0 --auto
 
-exec --no-startup-id /bin/bash -c $SCRIPTS/start_jack.sh
-exec --no-startup-id picom -cb
-exec --no-startup-id $SCRIPTS/polybar-launch.sh
+# exec --no-startup-id /bin/bash -c $SCRIPTS/start_jack.sh
+exec --no-startup-id picom -cb -o 0
 exec --no-startup-id nvidia-settings --load-config-only
 exec --no-startup-id $SCRIPTS/walran.sh
 exec --no-startup-id $SCRIPTS/misc
 exec --no-startup-id numlockx
 exec --no-startup-id redshift
+exec --no-startup-id $SCRIPTS/polybar-launch.sh
 
 ## lock
 exec --no-startup-id betterlockscreen --lock dim
