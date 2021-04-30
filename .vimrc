@@ -6,6 +6,7 @@ Plug 'airblade/vim-rooter'
 Plug 'ChristianChiarulli/codi.vim'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'morhetz/gruvbox'
 call plug#end()
 set runtimepath+=~/.vim_runtime
 
