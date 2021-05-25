@@ -26,5 +26,6 @@ endtry
 "===============================================
 "set ttymouse=sgr
 set mouse=a
+set clipboard=unnamedplus
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
