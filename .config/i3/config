@@ -7,7 +7,8 @@ set $PR_SCR_FOLDER /home/sugaya/media/pr_scr
 
 
 # startup scripts
-# exec --no-startup-id xrandr --output HDMI-0 --right-of DVI-D-0 --auto
+exec --no-startup-id xrandr --output HDMI-A-0 --mode 1920x1080 --rate 144.0
+# exec xrandr --output $(xrandr | grep ' connected' | awk '{print $1}') --mode 1920x1080 --rate 144.0
 
 # exec --no-startup-id /bin/bash -c $SCRIPTS/start_jack.sh
 exec --no-startup-id picom -cb -o 0
@@ -18,6 +19,8 @@ exec --no-startup-id numlockx
 exec --no-startup-id redshift
 exec --no-startup-id $SCRIPTS/polybar-launch.sh
 exec --no-startup-id tranmission-qt
+exec --no-startup-id setxkbmap -layout us -variant intl
+exec --no-startup-id run_keybase -g
 
 ## lock
 exec --no-startup-id betterlockscreen --lock dim
@@ -37,20 +40,24 @@ bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume 0 +5%
 
 
 ## print screen
-bindsym Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
+# bindsym Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
+bindsym Print exec --no-startup-id flameshot gui
 
 # print screen selection
-bindsym Shift+Print exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
+# bindsym Shift+Print exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
 
 # print screen and save
-bindsym Ctrl+Print exec --no-startup-id maim $PR_SCR_FOLDER/$(date +%F-%T).png
+# bindsym Ctrl+Print exec --no-startup-id maim $PR_SCR_FOLDER/$(date +%F-%T).png
 
 # print screen selection and save
-bindsym Ctrl+Shift+Print exec --no-startup-id maim -s $PR_SCR_FOLDER/$(date +%F-%T).png
+# bindsym Ctrl+Shift+Print exec --no-startup-id maim -s $PR_SCR_FOLDER/$(date +%F-%T).png
 
 
 # play-pause
 bindsym $mod+Mod1+space exec playerctl -p spotify play-pause
+
+# swap workspaces between 2 monitors
+bindsym $mod+Shift+s exec /home/sugaya/crs/dev/scripts/i3-display-swap.sh
 
 # next/previous
 # bindsym $mod+Mod1+Right exec playerctl next
@@ -123,7 +130,7 @@ bindsym $mod+a focus parent
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "ⅰ"
-set $ws2 "ⅱ"
+# set $ws2 "ⅱ"
 set $ws3 "ⅲ"
 set $ws4 "ⅳ"
 set $ws5 "ⅴ"
@@ -132,7 +139,7 @@ set $ws7 "ⅶ"
 set $ws8 "ⅷ"
 set $ws9 "ⅸ"
 set $ws10 "ⅹ"
-set $ws11 ""
+set $ws2 ""
 set $ws12 ""
 set $ws13 ""
 set $ws14 ""
@@ -179,6 +186,7 @@ assign [class="Kotatogram"] $ws14
 assign [class="Steam"] $ws16
 for_window [instance="origin.exe"] floating enable
 assign [class="obs"] $ws17
+assign [class="Nightly"] $ws2
 # for_window [instance="obs"] $ws17
 
 # reload the configuration file
@@ -230,9 +238,9 @@ gaps bottom 15
 # from PedroHLC
 set $mode_favs [d]iscord | [f]irefox | [s]team | [t]elegram | [v]olume | [S]potify  
 mode "$mode_favs" {
-    bindsym d exec lightcord; mode "default"
+    bindsym d exec discord-canary; mode "default"
     bindsym f exec firefox-nightly; mode "default"
-    bindsym s exec steam; mode "default"
+    bindsym s exec steam-native; mode "default"
     bindsym v exec pavucontrol-qt; mode "default"
     bindsym Shift+s exec ((pidof spotify) || spotify); mode "default"
     bindsym Shift+t exec kotatogram-desktop; mode "default"
@@ -241,9 +249,10 @@ mode "$mode_favs" {
 }
 bindsym $mod+Tab mode "$mode_favs"
 
-bindsym Mod1+Shift+d exec --no-startup-id lightcord
+bindsym Mod1+Shift+d exec --no-startup-id discord-canary
 bindsym Mod1+Shift+f exec --no-startup-id firefox-nightly
 bindsym Mod1+Shift+s exec --no-startup-id ((pidof spotify) || spotify)
-bindsym Mod1+Shift+g exec --no-startup-id steam
+bindsym Mod1+Shift+g exec --no-startup-id steam-native
 bindsym Mod1+Shift+t exec --no-startup-id kotatogram-desktop
 bindsym Mod1+Shift+v exec --no-startup-id pavucontrol-qt
+bindsym Mod1+Shift+k exec --no-startup-id keepassx2
