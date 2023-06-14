@@ -6,7 +6,7 @@ Plug 'airblade/vim-rooter'
 Plug 'ChristianChiarulli/codi.vim'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'morhetz/gruvbox'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 call plug#end()
 set runtimepath+=~/.vim_runtime
 
@@ -25,7 +25,8 @@ endtry
 " => Fixes mouse issues using Alacritty emulator
 "===============================================
 "set ttymouse=sgr
+let g:neovide_refresh_rate=144
 set mouse=a
-set clipboard=unnamedplus
+" set clipboard=unnamedplus
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif

@@ -58,3 +58,7 @@ alias vim=nvim
 alias ..='cd ..'
 alias copy='xclip -sel c <'
 alias :q='exit'
+alias fix='echo -e "\033c"'
+alias ctf='cd ~/ctf/2021'
+PATH=/home/sugaya/crs/dev/ctf-scripts:/usr/local/sbin:/usr/local/bin:/usr/bin:/opt/android-sdk/platform-tools:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/sugaya/.local/bin:/home/sugaya/.gem/ruby/2.7.0/bin:/home/sugaya/crs/dev/scripts/
+TERM=bash
